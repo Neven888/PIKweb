@@ -1,0 +1,23 @@
+.banner-image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    top: -3vh;
+    left: 0;
+    z-index: 0;
+}
+
+.latest-posts-slider {
+    position: relative; /* Needs to be positioned to use z-index */
+    z-index: 1; /* Puts the slider on top of the image */
+}
+
+.slider-banner {
+    /* The parent container needs a position: relative */
+    position: relative;
+    /* It also needs a height so the content doesn't collapse */
+    height: 70vh;
+    padding-top: 0px;
+}

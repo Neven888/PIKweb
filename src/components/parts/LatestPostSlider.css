@@ -1,0 +1,81 @@
+@import url(https://use.typekit.net/ill8kzx.css);
+
+.prvi-section {
+position: relative;                 /* so it can layer */
+  width: 100vw;                       /* full viewport width */
+  min-height: 100vh;                  /* full viewport height */
+  background-image: url('../../assets/img/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: -40px;                          /* remove container spacing */
+  padding: 0px;
+  z-index: 1;        
+}
+
+
+.slide {
+    display: flex;
+    justify-content: center; /* Centers the two columns */
+    align-items: center; /* Vertically centers the content */
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column; /* Stacks title and button vertically */
+    justify-content: center;
+    align-items: flex-start; /* Aligns content to the left */
+    width: 50%; /* Adjust this to control column width */
+    margin: 0 auto; /* Centers the container horizontally */
+    padding-top: 450px;
+    margin-left: 250px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centers the image */
+    align-items: center;
+    width: 50%; /* Adjust this to control column width */
+    margin: 0 auto; /* Centers the container horizontally */
+    margin-right: 60px;
+}
+
+.slajd {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 8px solid #021B39;
+    border-radius: 10px;
+}
+
+.slick-prev, .slick-next {
+    z-index: 5; /* Ensures arrows are above other content */
+}
+
+.title {
+    font-family: "proxima-nova-condensed", sans-serif;
+    font-display: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    color: #021B39;
+    margin-bottom: 20px;
+   text-transform: uppercase;
+}
+
+.brojgumb {
+    text-decoration: none;
+    background-color: #d59533;
+    color: #021B39;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    font-family: "adelle", serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.brojgumb:hover {
+    background-color: #021B39;
+    color: #F4F3EE;
+}

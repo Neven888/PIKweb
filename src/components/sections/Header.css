@@ -1,0 +1,135 @@
+@import url(https://use.typekit.net/ill8kzx.css);
+
+/* Glavni kontejner headera */
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    /* Glavni header je potpuno transparentan, vidi se pozadina prve sekcije */
+    background-color: transparent; 
+}
+
+/* Stilovi za gornju traku */
+.top-header-bar {
+    width: 100%;
+    background-color: #021B39; /* Tamnoplava pozadina */
+    padding: 7px 0;
+}
+
+.top-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.join-link {
+    color: #F4F3EE;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 19px;
+    font-family: "proxima-nova-condensed", sans-serif;
+    font-display: auto;
+    font-style: normal;
+
+
+}
+.join-link:hover {
+    color: #ffd700;
+}
+
+/* Stilovi za red s gumbom "PRIJAVA" */
+.login-button-row {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    text-align: right; /* Poravnava gumb u desno */
+    z-index: 6;
+}
+
+.login-button {
+    margin-right: 50px; /* Razmak od ruba */
+    padding: 1px 6px;
+    text-decoration: none;
+    border: 2px solid #021B39;
+    background-color: #021B39;
+    color: #F4F3EE;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: "adelle", serif;
+}
+
+.login-button:hover {
+    background-color: #f4f3ee;
+    color: #021B39;
+}
+
+/* Stilovi za glavni navigacijski dio (nav i logo) */
+.main-navigation-container {
+    width: 100%;
+    padding: 15px 0;
+}
+
+.main-navigation-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.logo {
+    height: 130px;
+    display: block;
+}
+
+.main-nav-left ul,
+.main-nav-right ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 120px;
+    border-bottom: 2px solid #021B39;
+    padding: 4px 80px;
+    border-top: 2px solid #021B39;
+    background-color: rgba(234, 211, 177, 0.9);
+}
+
+.main-nav-left ul {
+    padding-left: 150px;
+}
+.main-nav-right ul {
+    padding-right: 150px;
+}
+
+.main-nav-left a,
+.main-nav-right a {
+    text-decoration: none;
+    color: #021B39;
+    font-family: "proxima-nova-condensed", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding: 5px 6px;
+}
+
+.main-nav-left a:hover,
+.main-nav-right a:hover {
+    color: #f4f3ee;
+    background-color: #D59533;
+    padding: 5px 6px;
+}
