@@ -82,19 +82,27 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    flex-wrap: nowrap;
 }
 
 .header-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 10;
+    width: 200px;
+    text-align: center;
+    justify-items: center;
 }
 
 .logo {
     height: 130px;
     display: block;
 }
+
+.main-nav-left,
+.main-nav-right {
+   flex-grow: 10;
+   min-width: 380px;
+}
+
 
 .main-nav-left ul,
 .main-nav-right ul {
@@ -132,4 +140,294 @@
     color: #f4f3ee;
     background-color: #D59533;
     padding: 5px 6px;
+}
+
+li {
+    white-space: nowrap;
+}
+
+.hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}   
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #021B39;
+    margin: 4px 0;
+    transition: all 0.3s ease;  
+}
+
+.mobile-nav-full {
+    display: none; /* Initially hidden */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add transition for smooth opening */
+    transform: translateX(100%); /* Start off-screen */
+    opacity: 0; /* Start invisible */
+}
+
+.mobile-nav-full.mobile-menu-open {
+    display: flex; /* Show when open */
+    transform: translateX(0); /* Slide in */
+    opacity: 1; /* Fade in */
+}
+
+@media (max-width: 768px) {
+    .hamburger-button {
+        display: block; /* Prikaži hamburger gumb na manjim ekranima */
+    }
+}
+
+/* BREAKPOINT ZA MOBILNI UREĐAJ (max-width: 650px) */
+
+
+@media (max-width: 1500px) {
+    /* Smanjujemo razmak između linkova */
+    .main-nav-left ul,
+    .main-nav-right ul {
+        gap: 50px; 
+    }
+    /* Smanjujemo prekomjerni padding na krajevima */
+    .main-nav-left ul {
+        padding-left: 50px; 
+    }
+    .main-nav-right ul {
+        padding-right: 50px;
+    }
+    .header-logo {
+        width: 150px; /* Smanjujemo prostor za logo */
+    }
+}
+
+/* MERGED: single 900px media block (consolidated, no visual changes) */
+@media (max-width: 900px) {
+    .mobile-nav-full {
+        display: none;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+    }
+    .mobile-nav-full.mobile-menu-open {
+        display: flex;
+        transform: translateX(0);
+        position: absolute;
+        top: calc(100% + 30px); /* moved lower — increase/decrease +140px to taste */
+        left: 0;
+        width: 100%;
+        height: 40vh;
+        background-color: rgba(234, 211, 177, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 990;
+        border-bottom: 2px solid #021B39;
+        border-top: 2px solid #021B39;
+    }
+    
+    /* Glavni wrapper mijenja smjer */
+    .main-navigation-wrapper {
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .mobile-nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+
+    }
+    
+     .mobile-link {
+        padding: 15px 0;
+        display: block;
+        color: #021B39;
+        text-decoration: none;
+        color: #021B39;
+        font-family: "proxima-nova-condensed", sans-serif;
+        font-weight: 900;
+        font-size: 18px;
+        transition: color 0.3s ease;
+        padding: 5px 6px;
+
+     }
+
+      .mobile-login {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .hamburger-button {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: calc(50% + 90px); /* Prilagodite prema potrebi */
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .login-button-row {
+        display: none;
+    }
+    /* Navigacijski kontejneri zauzimaju punu širinu */
+    .main-nav-left,
+    .main-nav-right {
+        display: none; 
+    }
+
+    /* Logo postaje dio normalnog Flex toka */
+    .header-logo {
+        position: static;
+        transform: none;
+        order: -1; /* Postavlja logo na sam vrh stoga */
+        margin-bottom: 15px;
+        width: auto; /* Logo može zauzeti svoju prirodnu širinu */
+    }
+
+    /* Spajamo navigacijske liste i centriramo ih ispod loga */
+    .main-nav-left ul,
+    .main-nav-right ul {
+        width: 100%;
+        justify-content: center;
+        gap: 30px; 
+        padding: 10px 0;
+        /* Uklanjamo prevelike paddinge */
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    /* Na tabletu, spajamo sve linkove u jedan centrirani red */
+    .main-nav-left { order: 1; }
+    .main-nav-right { order: 2; }
+
+     .hamburger-button.is-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-button.is-active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-button.is-active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .login-button {
+        margin-right: 0px; /* Smanjimo razmak od ruba na manjim ekranima */
+        
+    }
+}
+
+/* KEEP: mobile (650px) rules unchanged */
+@media (max-width: 650px) {
+    /* Sakrivamo login button red */
+    .login-button-row {
+        display: none;
+    }
+
+    .mobile-login {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    /* Sakrivamo cijelu navigaciju (osim loga) */
+    .main-nav-left,
+    .main-nav-right {
+        display: none; 
+    }
+
+    /* Prikazujemo gumb za hamburger */
+    .hamburger-button {
+       display: block;
+        position: absolute;
+        left: 50%;
+        top: calc(50% + 90px); /* Prilagodite prema potrebi */
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    
+    /* Osigurajte da je logo centriran */
+    .main-navigation-wrapper {
+        align-items: center;
+        justify-content: center;
+        min-height: 100px; /* Osigurajte visinu headera */
+    }
+    .mobile-nav-full {
+        /* Inicijalno sakrivena */
+        display: none;
+        
+        /* Transition za animaciju otvaranja */
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%); /* Sakrijte izbornik s desne strane */
+    }
+
+    /* Kada je izbornik otvoren, prikažite ga */
+    .mobile-nav-full.mobile-menu-open {
+        display: flex;
+        transform: translateX(0); /* Pokažite izbornik */
+        position: absolute;
+        top: calc(100% + 30px); /* moved lower on small screens — adjust +200px as needed */
+        left: 0;
+        width: 100%;
+        height: 40vh; 
+        text-decoration: none;
+        background-color: rgba(234, 211, 177, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 990;
+        border-bottom: 2px solid #021B39;
+        border-top: 2px solid #021B39;
+    }
+
+    .mobile-nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+    }
+    
+    .mobile-link {
+        padding: 15px 0;
+        display: block;
+        color: #021B39;
+        text-decoration: none;
+        color: #021B39;
+        font-family: "proxima-nova-condensed", sans-serif;
+        font-weight: 900;
+        font-size: 18px;
+        transition: color 0.3s ease;
+        padding: 5px 6px;
+        /* ... ostali stilovi ... */
+    }
+    .login-button {
+        margin-right: 0px; /* Smanjimo razmak od ruba na manjim ekranima */
+        
+    }
+     .hamburger-button.is-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-button.is-active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-button.is-active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
 }
